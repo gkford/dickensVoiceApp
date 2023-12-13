@@ -88,6 +88,9 @@ const App = () => {
           <TouchableOpacity style={styles.stop} onPress={stopRecording}>
             <Text style={{color: 'white', fontWeight: 'bold'}}>Stop</Text>
           </TouchableOpacity>
+          <TouchableOpacity style={styles.send} onPress={/* Add your send function here */}>
+            <Text style={{color: 'white', fontWeight: 'bold'}}>Send</Text>
+          </TouchableOpacity>
         </View>
 
         <TouchableOpacity style={styles.clear} onPress={clear}>
@@ -135,6 +138,14 @@ const styles = StyleSheet.create({
   },
   stop: {
     backgroundColor: 'red',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 8,
+    borderRadius: 8,
+  },
+  send: {
+    backgroundColor: 'green',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
