@@ -13,6 +13,7 @@ import Voice from '@react-native-community/voice';
 const App = () => {
   const [result, setResult] = useState('');
   const [isLoading, setLoading] = useState(false);
+  const [isSendEnabled, setSendEnabled] = useState(true);
 
   const speechStartHandler = (e:any) => {
     console.log('speechStart successful', e);
@@ -47,6 +48,7 @@ const App = () => {
 
   const clear = () => {
     setResult('');
+    setSendEnabled(true);
   };
 
   useEffect(() => {
@@ -88,7 +90,7 @@ const App = () => {
           <TouchableOpacity style={styles.stop} onPress={stopRecording}>
             <Text style={{color: 'white', fontWeight: 'bold'}}>Stop</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.send}>
+          <TouchableOpacity style={styles.send} disabled={!isSendEnabled}>
             <Text style={{color: 'white', fontWeight: 'bold'}}>Send</Text>
           </TouchableOpacity>
         </View>
