@@ -90,7 +90,24 @@ const App = () => {
           <TouchableOpacity style={styles.stop} onPress={stopRecording}>
             <Text style={{color: 'white', fontWeight: 'bold'}}>Stop</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.send} disabled={!isSendEnabled}>
+          <TouchableOpacity style={styles.send} disabled={!isSendEnabled} onPress={async () => {
+            setSendEnabled(false);
+            try {
+              const response = await fetch('https://aiwriter.ngrok.dev/write', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  text: result,
+                }),
+              });
+              const data = await response.json();
+              console.log(data);
+            } catch (error) {
+              console.error('Error:', error);
+            }
+          }}>
             <Text style={{color: 'white', fontWeight: 'bold'}}>Send</Text>
           </TouchableOpacity>
         </View>
