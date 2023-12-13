@@ -88,7 +88,7 @@ const App = () => {
           <TouchableOpacity style={styles.stop} onPress={stopRecording}>
             <Text style={{color: 'white', fontWeight: 'bold'}}>Stop</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.send} onPress={/* Add your send function here */}>
+          <TouchableOpacity style={styles.send}>
             <Text style={{color: 'white', fontWeight: 'bold'}}>Send</Text>
           </TouchableOpacity>
         </View>
