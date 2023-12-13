@@ -93,6 +93,11 @@ const App = () => {
           <TouchableOpacity style={styles.send} disabled={!isSendEnabled} onPress={async () => {
             setSendEnabled(false);
             try {
+              console.log(result)
+              const bodyContents = JSON.stringify({
+                text: result,
+              })
+              console.log("bodyContents: ", bodyContents)
               const response = await fetch('https://aiwriter.ngrok.dev/write', {
                 method: 'POST',
                 headers: {
@@ -102,8 +107,8 @@ const App = () => {
                   text: result,
                 }),
               });
+              console.log("response: ", response);
               const data = await response.json();
-              console.log(data);
             } catch (error) {
               console.error('Error:', error);
             }
