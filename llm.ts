@@ -1,6 +1,6 @@
 
 
-{
+const model = {
     "id": "asst_outline_helper",
     "object": "assistant",
     "created_at": 1698984975,
