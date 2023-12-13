@@ -104,11 +104,11 @@ const App = () => {
                   'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                  text: result,
+                  data: result,
                 }),
               });
               console.log("response: ", response);
-              const data = await response.json();
+              const data = await response.text();
             } catch (error) {
               console.error('Error:', error);
             }
