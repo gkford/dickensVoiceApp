@@ -9,6 +9,7 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import Voice from '@react-native-community/voice';
+import {logAssistant} from './llm/llm'
 
 const App = () => {
   const [result, setResult] = useState('');
@@ -98,7 +99,8 @@ const App = () => {
                 text: result,
               })
               console.log("bodyContents: ", bodyContents)
-              const response = await fetch('https://aiwriter.ngrok.dev/write', {
+              await logAssistant()
+              const response = await fetch('http://127.0.0.1:5000/write', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
@@ -107,7 +109,6 @@ const App = () => {
                   data: result,
                 }),
               });
-              console.log("response: ", response);
               const data = await response.text();
             } catch (error) {
               console.error('Error:', error);
