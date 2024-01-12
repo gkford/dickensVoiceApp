@@ -1,5 +1,5 @@
 import OpenAI from "openai";
-import {APIKEY} from "./apikey"
+import {APIKEY} from "../apikey"
 
 const TESTIO_ASSISTANT_ID="asst_eXxqYIpaAYLWZeT2qjlOUfaa"
 
